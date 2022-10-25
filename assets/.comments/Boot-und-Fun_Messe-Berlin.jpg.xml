@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comment version="3.0">
+  <caption>Blaue Boote</caption>
+  <note>Blau beläuchtetet Boote</note>
+  <place>Messe Berlin</place>
+  <rating value="2"/>
+  <time value="2022:10:25 22:12:39"/>
+  <categories>
+    <category value="boot"/>
+    <category value="first-tag"/>
+    <category value="messe"/>
+  </categories>
+</comment>
