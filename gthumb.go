@@ -4,17 +4,15 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
 // GthumbCommentsRead Read an file from the .comment directory.
-func GthumbCommentsRead(path string) (comment *XMLComment, err error) {
+// Returned an Object with the information of the readed file.
+func GthumbCommentsRead(path string) (*XMLComment, error) {
+	var comment *XMLComment
 
-	var comment XMLComment
-	log.Panicf("Try to read ", path)
-
-	xmlFile, err := os.Open(mediaInfo.AbsoluteManifestSourcePath)
+	xmlFile, err := os.Open(path)
 	if err != nil {
 		return nil, fmt.Errorf("can't read comment file: %s", err)
 	}
@@ -24,6 +22,5 @@ func GthumbCommentsRead(path string) (comment *XMLComment, err error) {
 	if err := xml.Unmarshal(byteValue, &comment); err != nil {
 		return nil, fmt.Errorf("can't unmarshal comment file: %s", err)
 	}
-
-	return &comment
+	return comment, nil
 }

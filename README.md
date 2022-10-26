@@ -12,3 +12,12 @@ go get github.com/OlafRadicke/
 
 ## Basic usage
 
+
+
+## Test
+
+Run test with:
+
+```bash
+go run ./example/example.go ./assets/.comments/Boot-und-Fun_Messe-Berlin.jpg.xml 
+```

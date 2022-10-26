@@ -15,6 +15,19 @@ func main() {
 	}
 	path := os.Args[1]
 
-	log.Panicf("Try to read ", path)
-	gt.GthumbCommentsRead()
+	log.Printf("Try to read %s", path)
+	// var comment *gt.XMLComment
+	comment, err := gt.GthumbCommentsRead(path)
+	if err != nil {
+		log.Panicf("error parsing comment file: %w", err)
+	}
+	log.Printf("comment has comment version: %s\n", comment.CommentVersion)
+	log.Printf("comment has caption: %s\n", comment.Caption)
+	log.Printf("comment has node: %s\n", comment.Note)
+	log.Printf("comment has place: %s\n", comment.Place)
+	log.Printf("comment has rating: %s\n", comment.Rating.Value)
+
+	for index, category := range comment.Categories.CategoryList {
+		log.Printf("comment has category (%d): %s\n", index, category.Value)
+	}
 }
