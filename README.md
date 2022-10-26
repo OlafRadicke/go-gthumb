@@ -14,10 +14,26 @@ go get github.com/OlafRadicke/
 
 
 
-## Test
+## Test and example
 
 Run test with:
 
 ```bash
 go run ./example/example.go ./assets/.comments/Boot-und-Fun_Messe-Berlin.jpg.xml 
 ```
+
+## Status
+
+### Ready implemented
+
+- Realding the files in the .comment drictory : [GthumbCommentsRead(path string) (*XMLComment, error)](gthumb.go)
+
+### Todo
+
+- Realding the files bookmarks.xbel
+- Realding the files filters.xml
+- Realding the files tags.xml
+- Writing the files in the .comment drictory
+- Writing the files bookmarks.xbel
+- Writing the files filters.xml
+- Writing the files tags.xml
