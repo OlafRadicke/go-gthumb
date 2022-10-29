@@ -15,8 +15,8 @@ func main() {
 	}
 	path := os.Args[1]
 
+	// Reat xml...
 	log.Printf("Try to read %s", path)
-	// var comment *gt.XMLComment
 	comment, err := gt.GthumbCommentsRead(path)
 	if err != nil {
 		log.Panicf("error parsing comment file: %w", err)
@@ -29,5 +29,12 @@ func main() {
 
 	for index, category := range comment.Categories.CategoryList {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
+	}
+
+	// write back...
+
+	err = gt.GthumbCommentsWrite("./test-output.xml", comment)
+	if err != nil {
+		log.Panicf("error writting comment file: %w", err)
 	}
 }
