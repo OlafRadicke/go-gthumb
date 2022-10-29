@@ -29,7 +29,7 @@ go run ./example/example.go ./assets/.comments/Boot-und-Fun_Messe-Berlin.jpg.xml
 - Realding the files in the .comment drictory :
   - [CommentsRead(path string) (*XMLComment, error)](gthumb.go)
 - Writing the files in the .comment drictory:
-  - [CommentsWrite(path string, comment *XMLComment) (error)](gthumb.go))
+  - [CommentsWrite(path string, comment *XMLComment) (error)](gthumb.go)
 
 ### Todo
 
