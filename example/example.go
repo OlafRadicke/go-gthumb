@@ -17,7 +17,7 @@ func main() {
 
 	// Reat xml...
 	log.Printf("Try to read %s", path)
-	comment, err := gt.GthumbCommentsRead(path)
+	comment, err := gt.CommentsRead(path)
 	if err != nil {
 		log.Panicf("error parsing comment file: %w", err)
 	}
@@ -33,7 +33,7 @@ func main() {
 
 	// write back...
 
-	err = gt.GthumbCommentsWrite("./test-output.xml", comment)
+	err = gt.CommentsWrite("./test-output.xml", comment)
 	if err != nil {
 		log.Panicf("error writting comment file: %w", err)
 	}

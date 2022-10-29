@@ -8,9 +8,9 @@ import (
 	"os"
 )
 
-// GthumbCommentsRead read an file from the .comment directory.
+// CommentsRead read an file from the .comment directory.
 // Returned an Object with the information of the readed file.
-func GthumbCommentsRead(path string) (*XMLComment, error) {
+func CommentsRead(path string) (*XMLComment, error) {
 	var comment *XMLComment
 
 	xmlFile, err := os.Open(path)
@@ -27,8 +27,8 @@ func GthumbCommentsRead(path string) (*XMLComment, error) {
 }
 
 
-// GthumbCommentsRead write an comment file to the .comment directory.
-func GthumbCommentsWrite(path string, comment *XMLComment) (error) {
+// CommentsRead write an comment file to the .comment directory.
+func CommentsWrite(path string, comment *XMLComment) (error) {
 
 	xmlString, err := xml.MarshalIndent(comment, "", "  ")
 	if err != nil {
