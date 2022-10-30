@@ -19,7 +19,7 @@ go get github.com/OlafRadicke/
 Run test with:
 
 ```bash
-go run ./example/example.go ./assets/.comments/Boot-und-Fun_Messe-Berlin.jpg.xml
+go run ./example/example.go
 ```
 
 ## Status
@@ -41,3 +41,5 @@ go run ./example/example.go ./assets/.comments/Boot-und-Fun_Messe-Berlin.jpg.xml
 - Writing the files bookmarks.xbel
 - Writing the files filters.xml
 - Writing the files tags.xml
+
+Grüße

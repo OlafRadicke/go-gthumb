@@ -3,43 +3,64 @@ package gthumb
 import (
 	"encoding/xml"
 	"fmt"
-	"log"
 	"io/ioutil"
 	"os"
 )
 
-// CommentsRead read an file from the .comment directory.
-// Returned an Object with the information of the readed file.
-func CommentsRead(path string) (*XMLComment, error) {
-	var comment *XMLComment
+type commentfile interface {
+	NewCommentFile(path string)
+	Load()
+	Save()
+}
 
-	xmlFile, err := os.Open(path)
+type CommentFile struct {
+	FilePath string
+	XML XMLComment
+}
+
+// NewCommentFile Inite an CommentFile and get it back.
+// It's need an steing with the path to the xml comment file
+// of gThumb.
+func NewCommentFile(path string) (*CommentFile, error) {
+	commentFile := CommentFile{}
+	commentFile.FilePath = path
+	err := commentFile.Load()
 	if err != nil {
 		return nil, fmt.Errorf("can't read comment file: %s", err)
+	}
+	return &commentFile, nil
+}
+
+// Load Loaded the conten of the comment file.
+func (commentFile *CommentFile) Load() (error) {
+	var err error
+	xmlFile, err := os.Open(commentFile.FilePath)
+	if err != nil {
+		return fmt.Errorf("can't read comment file: %s", err)
 	}
 	defer xmlFile.Close()
 
 	byteValue, _ := ioutil.ReadAll(xmlFile)
-	if err := xml.Unmarshal(byteValue, &comment); err != nil {
-		return nil, fmt.Errorf("can't unmarshal comment file: %s", err)
+	err = xml.Unmarshal(byteValue, &commentFile.XML)
+	if err != nil {
+		return fmt.Errorf("can't unmarshal comment file: %s", err)
 	}
-	return comment, nil
+	return nil
 }
 
 
-// CommentsRead write an comment file to the .comment directory.
-func CommentsWrite(path string, comment *XMLComment) (error) {
+// Save write this comment object back to the file in the .comment directory.
+func (commentFile *CommentFile) Save() (error) {
 
-	xmlString, err := xml.MarshalIndent(comment, "", "  ")
+	xmlString, err := xml.MarshalIndent(commentFile.XML, "", "  ")
 	if err != nil {
 		return fmt.Errorf("can't marshal xml comment file: %s", err)
 	}
-	xmlFile, err := os.Create(path)
+	xmlFile, err := os.Create(commentFile.FilePath)
     if err != nil {
         return fmt.Errorf("can't create xml comment file: %s", err)
     }
 	defer xmlFile.Close()
-	log.Printf(string(xmlString))
     _, err = xmlFile.WriteString(xml.Header + string(xmlString))
     if err != nil {
 		return fmt.Errorf("can't write xml comment file: %s", err)

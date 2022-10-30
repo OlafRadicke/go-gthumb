@@ -6,12 +6,13 @@ import (
 
 type XMLComment struct {
 	XMLName        xml.Name      `xml:"comment"`
-	Caption        string        `xml:"caption"`
-	Categories     xmlCategories `xml:"categories"`
 	CommentVersion string        `xml:"version,attr"`
+	Caption        string        `xml:"caption"`
 	Note           string        `xml:"note"`
 	Place          string        `xml:"place"`
 	Rating         xmlRating     `xml:"rating"`
+	Time           xmlTime       `xml:"time"`
+	Categories     xmlCategories `xml:"categories"`
 }
 
 type xmlCategories struct {
@@ -24,5 +25,9 @@ type xmlCategory struct {
 }
 
 type xmlRating struct {
+	Value string `xml:"value,attr"`
+}
+
+type xmlTime struct {
 	Value string `xml:"value,attr"`
 }
