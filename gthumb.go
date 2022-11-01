@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 )
 
@@ -11,6 +12,8 @@ type commentfile interface {
 	NewCommentFile(path string)
 	Load()
 	Save()
+	GetCategories()
+	AddCategory(string)
 }
 
 type CommentFile struct {
@@ -66,4 +69,29 @@ func (commentFile *CommentFile) Save() (error) {
 		return fmt.Errorf("can't write xml comment file: %s", err)
     }
 	return nil
+}
+
+// GetCategories Get back the list of the Categories
+func (commentFile *CommentFile) GetCategories() ([]xmlCategory) {
+	return commentFile.XML.Categories.CategoryList
+}
+
+// AddCategory Add a Category to the list of the Categories
+func (commentFile *CommentFile) AddCategory(catValue string) () {
+	newCat := xmlCategory{Value: catValue}
+	commentFile.XML.Categories.CategoryList = append(commentFile.XML.Categories.CategoryList, newCat)
+}
+
+// RemoveCategory Remove a Category from the list of the Categories
+func (commentFile *CommentFile) RemoveCategory(catValue string) () {
+	var newList []xmlCategory
+
+	for index, category := range commentFile.GetCategories() {
+		if category.Value == catValue {
+			continue;
+		} else {
+			newList = append(newList, category)
+		}
+	}
+	commentFile.XML.Categories.CategoryList = newList
 }

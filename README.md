@@ -26,10 +26,10 @@ go run ./example/example.go
 
 ### Ready implemented
 
-- Realding the files in the .comment drictory :
-  - [CommentsRead(path string) (*XMLComment, error)](gthumb.go)
-- Writing the files in the .comment drictory:
-  - [CommentsWrite(path string, comment *XMLComment) (error)](gthumb.go)
+- Realding the files in the .comment drictory
+- Writing the files in the .comment drictory
+- Add a category to the list of categories
+- Remove a category from the list of categories
 
 ### Todo
 

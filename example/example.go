@@ -17,15 +17,15 @@ func main() {
 }
 
 // Create a copy of the directory with the test files
-func testPreparation(){
-    srcDir := "./assets"
-    testDir := "./tmp_test"
+func testPreparation() {
+	srcDir := "./assets"
+	testDir := "./tmp_test"
 
-    cmd := exec.Command("cp", "--recursive", srcDir, testDir)
-    cmd.Run()
+	cmd := exec.Command("cp", "--recursive", srcDir, testDir)
+	cmd.Run()
 }
 
-func modifieTest(path string){
+func modifieTest(path string) {
 	// Read xml...
 	log.Printf("Try to read file 1 %s", path)
 	comment, err := gt.NewCommentFile(path)
@@ -39,10 +39,21 @@ func modifieTest(path string){
 	log.Printf("comment has place: %s\n", comment.XML.Place)
 	log.Printf("comment has rating: %s\n", comment.XML.Rating.Value)
 
-	for index, category := range comment.XML.Categories.CategoryList {
+	for index, category := range comment.GetCategories() {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
 	}
 
+	comment.AddCategory("Handtuch")
+
+	for index, category := range comment.GetCategories() {
+		log.Printf("comment has category (%d): %s\n", index, category.Value)
+	}
+
+	comment.RemoveCategory("Handtuch")
+
+	for index, category := range comment.GetCategories() {
+		log.Printf("comment has category (%d): %s\n", index, category.Value)
+	}
 
 	log.Printf("Check node: %s\n", comment.XML.Note)
 	log.Printf("Check rating: %s\n", comment.XML.Rating.Value)
