@@ -28,8 +28,8 @@ go run ./example/example.go
 
 - Realding the files in the .comment drictory
 - Writing the files in the .comment drictory
-- Add a category to the list of categories
-- Remove a category from the list of categories
+  - Add and remove methodes for from the list of categories
+  - Get methode for version of comment file format
 
 ### Todo
 

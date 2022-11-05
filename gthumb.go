@@ -12,9 +12,14 @@ type commentfile interface {
 	NewCommentFile(path string)
 	Load()
 	Save()
-	GetCategories()
 	AddCategory(string)
+	GetCaption()
+	GetCategories()
 	GetCommentVersion()
+	GetNote()
+	RemoveCategory(string)
+	SetCaption()
+	SetNote()
 }
 
 type CommentFile struct {
@@ -78,6 +83,25 @@ func (commentFile *CommentFile) GetCommentVersion() (string) {
 	return commentFile.XML.CommentVersion
 }
 
+// GetCaption Get back the value of Caption.
+func (commentFile *CommentFile) GetCaption() (string) {
+	return commentFile.XML.Caption
+}
+
+// SetCaption Set the value of Caption.
+func (commentFile *CommentFile) SetCaption(newValue string) () {
+	commentFile.XML.Caption = newValue
+}
+
+// GetNote Get back the value of Note.
+func (commentFile *CommentFile) GetNote() (string) {
+	return commentFile.XML.Note
+}
+
+// SetNote Set the value of Note.
+func (commentFile *CommentFile) SetNote(newValue string) () {
+	commentFile.XML.Note = newValue
+}
 
 // GetCategories Get back the list of the Categories
 func (commentFile *CommentFile) GetCategories() ([]xmlCategory) {

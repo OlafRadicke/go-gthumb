@@ -33,9 +33,10 @@ func modifieTest(path string) {
 		log.Panicf("error to init object: %w", err)
 	}
 
+	//  Get...
 	log.Printf("comment has comment version: %s\n", comment.GetCommentVersion())
-	log.Printf("comment has caption: %s\n", comment.XML.Caption)
-	log.Printf("comment has node: %s\n", comment.XML.Note)
+	log.Printf("comment has caption: %s\n", comment.GetCaption())
+	log.Printf("comment has node: %s\n", comment.GetNote())
 	log.Printf("comment has place: %s\n", comment.XML.Place)
 	log.Printf("comment has rating: %s\n", comment.XML.Rating.Value)
 
@@ -43,19 +44,20 @@ func modifieTest(path string) {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
 	}
 
+	// Set...
+	comment.SetCaption("An new Caption")
+	comment.SetNote("New Note")
 	comment.AddCategory("Handtuch")
-
 	for index, category := range comment.GetCategories() {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
 	}
-
 	comment.RemoveCategory("Handtuch")
-
 	for index, category := range comment.GetCategories() {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
 	}
 
-	log.Printf("Check node: %s\n", comment.XML.Note)
+	log.Printf("Check caption: %s\n", comment.GetCaption())
+	log.Printf("Check node: %s\n", comment.GetNote())
 	log.Printf("Check rating: %s\n", comment.XML.Rating.Value)
 	comment.XML.Note = "Boote in einer Halle"
 	comment.XML.Rating.Value = "16"
