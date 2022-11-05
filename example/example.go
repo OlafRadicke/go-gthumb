@@ -33,7 +33,7 @@ func modifieTest(path string) {
 		log.Panicf("error to init object: %w", err)
 	}
 
-	log.Printf("comment has comment version: %s\n", comment.XML.CommentVersion)
+	log.Printf("comment has comment version: %s\n", comment.GetCommentVersion())
 	log.Printf("comment has caption: %s\n", comment.XML.Caption)
 	log.Printf("comment has node: %s\n", comment.XML.Note)
 	log.Printf("comment has place: %s\n", comment.XML.Place)

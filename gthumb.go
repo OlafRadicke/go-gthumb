@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
-	"log"
+	// "log"
 	"os"
 )
 
@@ -14,6 +14,7 @@ type commentfile interface {
 	Save()
 	GetCategories()
 	AddCategory(string)
+	GetCommentVersion()
 }
 
 type CommentFile struct {
@@ -71,6 +72,13 @@ func (commentFile *CommentFile) Save() (error) {
 	return nil
 }
 
+
+// GetCommentVersion Get back the version Categories xml file format.
+func (commentFile *CommentFile) GetCommentVersion() (string) {
+	return commentFile.XML.CommentVersion
+}
+
+
 // GetCategories Get back the list of the Categories
 func (commentFile *CommentFile) GetCategories() ([]xmlCategory) {
 	return commentFile.XML.Categories.CategoryList
@@ -86,7 +94,7 @@ func (commentFile *CommentFile) AddCategory(catValue string) () {
 func (commentFile *CommentFile) RemoveCategory(catValue string) () {
 	var newList []xmlCategory
 
-	for index, category := range commentFile.GetCategories() {
+	for _, category := range commentFile.GetCategories() {
 		if category.Value == catValue {
 			continue;
 		} else {
