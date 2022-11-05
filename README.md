@@ -30,6 +30,8 @@ go run ./example/example.go
 - Writing the files in the .comment drictory
   - Add and remove methodes for from the list of categories
   - Get methode for version of comment file format
+  - Get and set method for Node value.
+  - Get and set method for Caption value.
 
 ### Todo
 
