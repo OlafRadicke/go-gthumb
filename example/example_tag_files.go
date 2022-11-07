@@ -43,4 +43,11 @@ func modifieTest(path string) {
 		log.Printf("Check has tag (%d): %s\n", index, tagItem.Value)
 	}
 
+	// save...
+
+	err = tags.Save()
+	if err != nil {
+		log.Panicf("error writting comment file: %w", err)
+	}
+
 }
