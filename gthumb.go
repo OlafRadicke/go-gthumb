@@ -17,9 +17,13 @@ type commentfile interface {
 	GetCategories()
 	GetCommentVersion()
 	GetNote()
+	GetPlace()
+	GetRating()
 	RemoveCategory(string)
 	SetCaption()
 	SetNote()
+	SetPlacee(string)
+	SetRating(string)
 }
 
 type CommentFile struct {
@@ -101,6 +105,26 @@ func (commentFile *CommentFile) GetNote() (string) {
 // SetNote Set the value of Note.
 func (commentFile *CommentFile) SetNote(newValue string) () {
 	commentFile.XML.Note = newValue
+}
+
+// GetPlace Get back the value of Place.
+func (commentFile *CommentFile) GetPlace() (string) {
+	return commentFile.XML.Place
+}
+
+// SetPlace Set the value of Placee.
+func (commentFile *CommentFile) SetPlace(newValue string) () {
+	commentFile.XML.Place = newValue
+}
+
+// GetRating Get back the value of Rating.
+func (commentFile *CommentFile) GetRating() (string) {
+	return commentFile.XML.Rating.Value
+}
+
+// SetRating Set the value of Ratinge.
+func (commentFile *CommentFile) SetRating(newValue string) () {
+	commentFile.XML.Rating.Value = newValue
 }
 
 // GetCategories Get back the list of the Categories

@@ -37,32 +37,31 @@ func modifieTest(path string) {
 	log.Printf("comment has comment version: %s\n", comment.GetCommentVersion())
 	log.Printf("comment has caption: %s\n", comment.GetCaption())
 	log.Printf("comment has node: %s\n", comment.GetNote())
-	log.Printf("comment has place: %s\n", comment.XML.Place)
-	log.Printf("comment has rating: %s\n", comment.XML.Rating.Value)
+	log.Printf("comment has place: %s\n", comment.GetPlace())
+	log.Printf("comment has rating: %s\n", comment.GetRating())
 
 	for index, category := range comment.GetCategories() {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
 	}
 
-	// Set...
+	// Set, add and remove ...
 	comment.SetCaption("An new Caption")
 	comment.SetNote("New Note")
+	comment.SetPlace("Set new place")
+	comment.SetRating("16")
+	comment.AddCategory("Apfel")
 	comment.AddCategory("Handtuch")
-	for index, category := range comment.GetCategories() {
-		log.Printf("comment has category (%d): %s\n", index, category.Value)
-	}
 	comment.RemoveCategory("Handtuch")
-	for index, category := range comment.GetCategories() {
-		log.Printf("comment has category (%d): %s\n", index, category.Value)
-	}
+
+	// Double check...
 
 	log.Printf("Check caption: %s\n", comment.GetCaption())
 	log.Printf("Check node: %s\n", comment.GetNote())
-	log.Printf("Check rating: %s\n", comment.XML.Rating.Value)
-	comment.XML.Note = "Boote in einer Halle"
-	comment.XML.Rating.Value = "16"
-	log.Printf("Check node change: %s\n", comment.XML.Note)
-	log.Printf("Check rating change: %s\n", comment.XML.Rating.Value)
+	log.Printf("Check place: %s\n", comment.GetPlace())
+	log.Printf("Check rating: %s\n", comment.GetRating())
+	for index, category := range comment.GetCategories() {
+		log.Printf("comment has category (%d): %s\n", index, category.Value)
+	}
 	// write back...
 
 	err = comment.Save()

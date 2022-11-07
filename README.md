@@ -28,10 +28,13 @@ go run ./example/example.go
 
 - Realding the files in the .comment drictory
 - Writing the files in the .comment drictory
-  - Add and remove methodes for from the list of categories
-  - Get methode for version of comment file format
-  - Get and set method for Node value.
-  - Get and set method for Caption value.
+- Add and remove methodes for from the list of categories
+- Get methode for version of comment file format
+- Get and set method for Node value.
+- Get and set method for Place value.
+- Get and set method for Caption value.
+- Get and set method for Rating value.
+
 
 ### Todo
 
