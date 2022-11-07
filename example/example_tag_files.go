@@ -35,7 +35,9 @@ func modifieTest(path string) {
 	}
 
 	// Add new tag...
-	tags.AddTag("new_tag")
+	tags.AddTag("new_tag_01")
+	tags.AddTag("new_tag_02")
+	tags.RemoveTag("new_tag_01")
 
 	// check tag again
 

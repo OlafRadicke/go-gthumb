@@ -4,16 +4,16 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
-	// "log"
 	"os"
 )
 
 type tagsfile interface {
-	NewTagsFile(string)
-	Load()
-	Save()
-	GetTags()
 	AddTag(string)
+	GetTags()
+	Load()
+	NewTagsFile(string)
+	RemoveTag(string)
+	Save()
 }
 
 type TagsFile struct {
@@ -82,3 +82,16 @@ func (tagsFile *TagsFile) AddTag(tagValue string) () {
 	tagsFile.XML.TagList = append(tagsFile.XML.TagList, newTag)
 }
 
+// RemoveTag Remove a tag from the list of the tags
+func (tagsFile *TagsFile) RemoveTag(catValue string) () {
+	var newList []xmlTag
+
+	for _, tagItem := range tagsFile.GetTags() {
+		if tagItem.Value == catValue {
+			continue;
+		} else {
+			newList = append(newList, tagItem)
+		}
+	}
+	tagsFile.XML.TagList = newList
+}
