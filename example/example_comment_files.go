@@ -39,6 +39,7 @@ func modifieTest(path string) {
 	log.Printf("comment has node: %s\n", comment.GetNote())
 	log.Printf("comment has place: %s\n", comment.GetPlace())
 	log.Printf("comment has rating: %s\n", comment.GetRating())
+	log.Printf("comment has time: %s\n", comment.GetTime())
 
 	for index, category := range comment.GetCategories() {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
@@ -48,6 +49,7 @@ func modifieTest(path string) {
 	comment.SetCaption("An new Caption")
 	comment.SetNote("New Note")
 	comment.SetPlace("Set new place")
+	comment.SetTime("2011:11:11 11:11:11")
 	comment.SetRating("16")
 	comment.AddCategory("Apfel")
 	comment.AddCategory("Handtuch")
@@ -59,6 +61,7 @@ func modifieTest(path string) {
 	log.Printf("Check node: %s\n", comment.GetNote())
 	log.Printf("Check place: %s\n", comment.GetPlace())
 	log.Printf("Check rating: %s\n", comment.GetRating())
+	log.Printf("Check time: %s\n", comment.GetTime())
 	for index, category := range comment.GetCategories() {
 		log.Printf("comment has category (%d): %s\n", index, category.Value)
 	}

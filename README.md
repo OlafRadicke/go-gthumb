@@ -29,16 +29,20 @@ go run example/example_tag_files.go
 
 ### Ready implemented
 
-- Read the files in the .comment directory
-- Write the files in the .comment directory
-- Add and remove methodes for from the list of categories
-- Get method for version of comment file format
-- Get and set method for Node value.
-- Get and set method for Place value.
-- Get and set method for Caption value.
-- Get and set method for read value.
-- Read the file with the tags configuration.
-- Write the file with the tags configuration.
+- files in the .comment directory
+  - Read the files in the .comment directory
+  - Write the files in the .comment directory
+  - Add and remove methodes for from the list of categories
+  - Get method for version of comment file format
+  - Get and set method for comment node value.
+  - Get and set method for comment place value.
+  - Get and set method for comment time value.
+  - Get and set method for comment caption value.
+  - Get and set method for read comment rating value.
+- ~/.config/gthumb/tags.xml
+  - Read the file with the tags configuration.
+  - Write the file with the tags configuration.
+  - get, add und remove tags from the tags configuration file.
 
 ### Todo
 

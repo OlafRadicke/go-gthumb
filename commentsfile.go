@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io/ioutil"
-	// "log"
 	"os"
 )
 
@@ -98,6 +97,16 @@ func (commentFile *CommentsFile) GetPlace() (string) {
 // SetPlace Set the value of Placee.
 func (commentFile *CommentsFile) SetPlace(newValue string) () {
 	commentFile.XML.Place = newValue
+}
+
+// GetTime Get back the value of Time.
+func (commentFile *CommentsFile) GetTime() (string) {
+	return commentFile.XML.Time.Value
+}
+
+// SetTime Set the value of Time.
+func (commentFile *CommentsFile) SetTime(newValue string) () {
+	commentFile.XML.Time.Value = newValue
 }
 
 // GetRating Get back the value of Rating.
