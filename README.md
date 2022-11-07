@@ -19,7 +19,7 @@ go get github.com/OlafRadicke/
 Run test with:
 
 ```bash
-go run ./example/example.go
+go run example/example_comment_files.go
 ```
 
 ## Status

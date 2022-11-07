@@ -9,17 +9,17 @@ import (
 )
 
 func main() {
-	path := "./tmp_test/.comments/Hans_Makart-Graefin_Palffy.jpeg.xml"
-	path2 := "./tmp_test/.comments/Branicka_Katharina.jpg.xml"
-	testPreparation()
+	testDir := "/tmp/go-gthumb-test"
+	path := testDir + "/.comments/Hans_Makart-Graefin_Palffy.jpeg.xml"
+	path2 := testDir + "/.comments/Branicka_Katharina.jpg.xml"
+	testPreparation(test_dir)
 	modifieTest(path)
 	modifieTest(path2)
 }
 
 // Create a copy of the directory with the test files
-func testPreparation() {
+func testPreparation(testDir string) {
 	srcDir := "./assets"
-	testDir := "./tmp_test"
 
 	cmd := exec.Command("cp", "--recursive", srcDir, testDir)
 	cmd.Run()
