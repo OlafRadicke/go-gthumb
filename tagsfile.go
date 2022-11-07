@@ -7,15 +7,6 @@ import (
 	"os"
 )
 
-type tagsfile interface {
-	AddTag(string)
-	GetTags()
-	Load()
-	NewTagsFile(string)
-	RemoveTag(string)
-	Save()
-}
-
 type TagsFile struct {
 	FilePath string
 	XML XMLTags

@@ -8,23 +8,6 @@ import (
 	"os"
 )
 
-type commentsfile interface {
-	NewCommentsFile(path string)
-	Load()
-	Save()
-	AddCategory(string)
-	GetCaption()
-	GetCategories()
-	GetCommentVersion()
-	GetNote()
-	GetPlace()
-	GetRating()
-	RemoveCategory(string)
-	SetCaption()
-	SetNote()
-	SetPlacee(string)
-	SetRating(string)
-}
 
 type CommentsFile struct {
 	FilePath string
