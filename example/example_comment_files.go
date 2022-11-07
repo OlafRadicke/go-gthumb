@@ -12,7 +12,7 @@ func main() {
 	testDir := "/tmp/go-gthumb-test"
 	path := testDir + "/.comments/Hans_Makart-Graefin_Palffy.jpeg.xml"
 	path2 := testDir + "/.comments/Branicka_Katharina.jpg.xml"
-	testPreparation(test_dir)
+	testPreparation(testDir)
 	modifieTest(path)
 	modifieTest(path2)
 }
