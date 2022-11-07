@@ -29,15 +29,16 @@ go run example/example_tag_files.go
 
 ### Ready implemented
 
-- Realding the files in the .comment drictory
-- Writing the files in the .comment drictory
+- Read the files in the .comment directory
+- Write the files in the .comment directory
 - Add and remove methodes for from the list of categories
-- Get methode for version of comment file format
+- Get method for version of comment file format
 - Get and set method for Node value.
 - Get and set method for Place value.
 - Get and set method for Caption value.
-- Get and set method for Rating value.
-
+- Get and set method for read value.
+- Read the file with the tags configuration.
+- Write the file with the tags configuration.
 
 ### Todo
 

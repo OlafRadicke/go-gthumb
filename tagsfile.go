@@ -9,10 +9,11 @@ import (
 )
 
 type tagsfile interface {
-	NewTagsFile(path string)
+	NewTagsFile(string)
 	Load()
 	Save()
 	GetTags()
+	AddTag(string)
 }
 
 type TagsFile struct {
@@ -80,3 +81,4 @@ func (tagsFile *TagsFile) AddTag(tagValue string) () {
 	newTag := xmlTag{Value: tagValue}
 	tagsFile.XML.TagList = append(tagsFile.XML.TagList, newTag)
 }
+
