@@ -2,7 +2,7 @@ package gthumb
 
 type XMLTags struct {
 	TagsVersion string      `xml:"version,attr"`
-	Tags     	[]xmlTag 	`xml:"tags"`
+	TagList    	[]xmlTag 	`xml:"tag"`
 }
 
 type xmlTag struct {

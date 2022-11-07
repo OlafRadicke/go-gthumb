@@ -4,7 +4,6 @@ import (
 	"log"
 	"os/exec"
 
-	// github.com/OlafRadicke/go-gthumb
 	gt "github.com/OlafRadicke/go-gthumb"
 )
 
@@ -29,9 +28,10 @@ func modifieTest(path string) {
 	if err != nil {
 		log.Panicf("error to init object: %w", err)
 	}
-
-	for index, tagItem := range tags.GetTages() {
-		log.Printf("comment has category (%d): %s\n", index, tagItem.Value)
+	log.Printf("Vatus of tags:\n")
+	log.Printf("%+v\n", tags)
+	for index, tagItem := range tags.GetTags() {
+		log.Printf("Tag file has tag (%d): %s\n", index, tagItem.Value)
 	}
 
 }

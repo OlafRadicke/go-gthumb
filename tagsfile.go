@@ -72,5 +72,5 @@ func (tagsFile *TagsFile) Save() (error) {
 
 // GetTags Get back the list of the tags
 func (tagsFile *TagsFile) GetTags() ([]xmlTag) {
-	return tagsFile.XML.Tags
+	return tagsFile.XML.TagList
 }
