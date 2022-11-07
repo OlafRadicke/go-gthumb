@@ -28,10 +28,19 @@ func modifieTest(path string) {
 	if err != nil {
 		log.Panicf("error to init object: %w", err)
 	}
-	log.Printf("Vatus of tags:\n")
-	log.Printf("%+v\n", tags)
+
+	// Print tgas
 	for index, tagItem := range tags.GetTags() {
 		log.Printf("Tag file has tag (%d): %s\n", index, tagItem.Value)
+	}
+
+	// Add new tag...
+	tags.AddTag("new_tag")
+
+	// check tag again
+
+	for index, tagItem := range tags.GetTags() {
+		log.Printf("Check has tag (%d): %s\n", index, tagItem.Value)
 	}
 
 }

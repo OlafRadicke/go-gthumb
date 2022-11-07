@@ -74,3 +74,9 @@ func (tagsFile *TagsFile) Save() (error) {
 func (tagsFile *TagsFile) GetTags() ([]xmlTag) {
 	return tagsFile.XML.TagList
 }
+
+// AddTag Add a tag to the list of the tags
+func (tagsFile *TagsFile) AddTag(tagValue string) () {
+	newTag := xmlTag{Value: tagValue}
+	tagsFile.XML.TagList = append(tagsFile.XML.TagList, newTag)
+}
