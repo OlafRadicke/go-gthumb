@@ -28,7 +28,7 @@ func testPreparation(testDir string) {
 func modifieTest(path string) {
 	// Read xml...
 	log.Printf("Try to read file 1 %s", path)
-	comment, err := gt.NewCommentFile(path)
+	comment, err := gt.NewCommentsFile(path)
 	if err != nil {
 		log.Panicf("error to init object: %w", err)
 	}

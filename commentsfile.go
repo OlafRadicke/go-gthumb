@@ -8,8 +8,8 @@ import (
 	"os"
 )
 
-type commentfile interface {
-	NewCommentFile(path string)
+type commentsfile interface {
+	NewCommentsFile(path string)
 	Load()
 	Save()
 	AddCategory(string)
@@ -26,16 +26,16 @@ type commentfile interface {
 	SetRating(string)
 }
 
-type CommentFile struct {
+type CommentsFile struct {
 	FilePath string
 	XML XMLComment
 }
 
-// NewCommentFile Inite an CommentFile and get it back.
+// NewCommentsFile Inite an CommentsFile and get it back.
 // It's need an steing with the path to the xml comment file
 // of gThumb.
-func NewCommentFile(path string) (*CommentFile, error) {
-	commentFile := CommentFile{}
+func NewCommentsFile(path string) (*CommentsFile, error) {
+	commentFile := CommentsFile{}
 	commentFile.FilePath = path
 	err := commentFile.Load()
 	if err != nil {
@@ -44,8 +44,8 @@ func NewCommentFile(path string) (*CommentFile, error) {
 	return &commentFile, nil
 }
 
-// Load Loaded the conten of the comment file.
-func (commentFile *CommentFile) Load() (error) {
+// Load Loaded the values of the comment file.
+func (commentFile *CommentsFile) Load() (error) {
 	var err error
 	xmlFile, err := os.Open(commentFile.FilePath)
 	if err != nil {
@@ -63,7 +63,7 @@ func (commentFile *CommentFile) Load() (error) {
 
 
 // Save write this comment object back to the file in the .comment directory.
-func (commentFile *CommentFile) Save() (error) {
+func (commentFile *CommentsFile) Save() (error) {
 
 	xmlString, err := xml.MarshalIndent(commentFile.XML, "", "  ")
 	if err != nil {
@@ -83,63 +83,63 @@ func (commentFile *CommentFile) Save() (error) {
 
 
 // GetCommentVersion Get back the version Categories xml file format.
-func (commentFile *CommentFile) GetCommentVersion() (string) {
+func (commentFile *CommentsFile) GetCommentVersion() (string) {
 	return commentFile.XML.CommentVersion
 }
 
 // GetCaption Get back the value of Caption.
-func (commentFile *CommentFile) GetCaption() (string) {
+func (commentFile *CommentsFile) GetCaption() (string) {
 	return commentFile.XML.Caption
 }
 
 // SetCaption Set the value of Caption.
-func (commentFile *CommentFile) SetCaption(newValue string) () {
+func (commentFile *CommentsFile) SetCaption(newValue string) () {
 	commentFile.XML.Caption = newValue
 }
 
 // GetNote Get back the value of Note.
-func (commentFile *CommentFile) GetNote() (string) {
+func (commentFile *CommentsFile) GetNote() (string) {
 	return commentFile.XML.Note
 }
 
 // SetNote Set the value of Note.
-func (commentFile *CommentFile) SetNote(newValue string) () {
+func (commentFile *CommentsFile) SetNote(newValue string) () {
 	commentFile.XML.Note = newValue
 }
 
 // GetPlace Get back the value of Place.
-func (commentFile *CommentFile) GetPlace() (string) {
+func (commentFile *CommentsFile) GetPlace() (string) {
 	return commentFile.XML.Place
 }
 
 // SetPlace Set the value of Placee.
-func (commentFile *CommentFile) SetPlace(newValue string) () {
+func (commentFile *CommentsFile) SetPlace(newValue string) () {
 	commentFile.XML.Place = newValue
 }
 
 // GetRating Get back the value of Rating.
-func (commentFile *CommentFile) GetRating() (string) {
+func (commentFile *CommentsFile) GetRating() (string) {
 	return commentFile.XML.Rating.Value
 }
 
 // SetRating Set the value of Ratinge.
-func (commentFile *CommentFile) SetRating(newValue string) () {
+func (commentFile *CommentsFile) SetRating(newValue string) () {
 	commentFile.XML.Rating.Value = newValue
 }
 
 // GetCategories Get back the list of the Categories
-func (commentFile *CommentFile) GetCategories() ([]xmlCategory) {
+func (commentFile *CommentsFile) GetCategories() ([]xmlCategory) {
 	return commentFile.XML.Categories.CategoryList
 }
 
 // AddCategory Add a Category to the list of the Categories
-func (commentFile *CommentFile) AddCategory(catValue string) () {
+func (commentFile *CommentsFile) AddCategory(catValue string) () {
 	newCat := xmlCategory{Value: catValue}
 	commentFile.XML.Categories.CategoryList = append(commentFile.XML.Categories.CategoryList, newCat)
 }
 
 // RemoveCategory Remove a Category from the list of the Categories
-func (commentFile *CommentFile) RemoveCategory(catValue string) () {
+func (commentFile *CommentsFile) RemoveCategory(catValue string) () {
 	var newList []xmlCategory
 
 	for _, category := range commentFile.GetCategories() {
