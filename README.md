@@ -23,6 +23,8 @@ go run example/example_comment_files.go
 ./scrpts/cean_up_test.sh
 go run example/example_tag_files.go
 ./scrpts/cean_up_test.sh
+go run example/example_file_tree.go
+./scrpts/cean_up_test.sh
 ```
 
 ## Status
