@@ -31,7 +31,7 @@ go run example/example_file_tree.go
 
 ### Ready implemented
 
-- files in the .comment directory
+- Files in the .comment directory
   - Read the files in the .comment directory
   - Write the files in the .comment directory
   - Add and remove methodes for from the list of categories
@@ -45,16 +45,9 @@ go run example/example_file_tree.go
   - Read the file with the tags configuration.
   - Write the file with the tags configuration.
   - get, add und remove tags from the tags configuration file.
+- Working in the collection file tree
+  - Find and collect all comment files
+  - Find and collect all media files
 
 ### Todo
 
-- Add interface
-- Realding the files bookmarks.xbel
-- Realding the files filters.xml
-- Realding the files tags.xml
-- Writing the files in the .comment drictory
-- Writing the files bookmarks.xbel
-- Writing the files filters.xml
-- Writing the files tags.xml
-
-Grüße
