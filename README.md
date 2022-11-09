@@ -49,5 +49,4 @@ go run example/example_file_tree.go
   - Find and collect all comment files
   - Find and collect all media files
 
-### Todo
 
