@@ -14,14 +14,15 @@ type CommentsFile struct {
 }
 
 // NewCommentsFile Inite an CommentsFile and get it back.
-// It's need an steing with the path to the xml comment file
+// It's need an string with the path to the xml comment file
 // of gThumb.
+// If the file not exist than it will be create an new File.
 func NewCommentsFile(path string) (*CommentsFile, error) {
 	commentFile := CommentsFile{}
 	commentFile.FilePath = path
 	err := commentFile.Load()
 	if err != nil {
-		return nil, fmt.Errorf("can't read comment file: %s", err)
+		return &commentFile, fmt.Errorf("can't read comment file: %s", err)
 	}
 	return &commentFile, nil
 }
