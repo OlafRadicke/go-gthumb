@@ -26,6 +26,9 @@ func testPreparation(testDir string) {
 }
 
 func modifieTest(path string) {
+	initEmtyTest := gt.NewXMLComment()
+	log.Printf("initEmtyTest.Note: ", initEmtyTest.Note)
+	log.Printf( initEmtyTest.Note)
 	// Read xml...
 	log.Printf("Try to read file 1 %s", path)
 	comment, err := gt.NewCommentsFile(path)

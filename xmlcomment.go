@@ -31,3 +31,16 @@ type XmlRating struct {
 type XmlTime struct {
 	Value string `xml:"value,attr"`
 }
+
+func NewXMLComment() *XMLComment {
+	xmlComment := XMLComment{}
+	xmlComment.XMLName = xml.Name{}
+	xmlComment.CommentVersion = ""
+	xmlComment.Caption = ""
+	xmlComment.Note = ""
+	xmlComment.Place = ""
+	categories := XmlCategories{}
+	categories.CategoryList = []XmlCategory{}
+	xmlComment.Categories = categories
+	return &xmlComment
+}
