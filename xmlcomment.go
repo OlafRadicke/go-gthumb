@@ -15,20 +15,20 @@ type XMLComment struct {
 	Categories     XmlCategories `xml:"categories"`
 }
 
+type XmlRating struct {
+	Value string `xml:"value,attr"`
+}
+
+type XmlTime struct {
+	Value string `xml:"value,attr"`
+}
+
 type XmlCategories struct {
 	CategoryList []XmlCategory `xml:"category"`
 	Value        string        `xml:"value,attr"`
 }
 
 type XmlCategory struct {
-	Value string `xml:"value,attr"`
-}
-
-type XmlRating struct {
-	Value string `xml:"value,attr"`
-}
-
-type XmlTime struct {
 	Value string `xml:"value,attr"`
 }
 
@@ -39,8 +39,13 @@ func NewXMLComment() *XMLComment {
 	xmlComment.Caption = ""
 	xmlComment.Note = ""
 	xmlComment.Place = ""
-	categories := XmlCategories{}
-	categories.CategoryList = []XmlCategory{}
-	xmlComment.Categories = categories
+	xmlComment.Rating = XmlRating{}
+	xmlComment.Rating.Value = ""
+	xmlComment.Time = XmlTime{}
+	xmlComment.Time.Value = ""
+	xmlComment.Categories = XmlCategories{}
+	xmlComment.Categories.CategoryList = []XmlCategory{}
+	xmlComment.Categories.Value = ""
+
 	return &xmlComment
 }
