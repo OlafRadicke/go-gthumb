@@ -10,7 +10,7 @@ import (
 
 type CommentsFile struct {
 	FilePath string
-	XML XMLComment
+	XML *XMLComment
 }
 
 // NewCommentsFile Inite an CommentsFile and get it back.
@@ -19,11 +19,11 @@ type CommentsFile struct {
 // If the file not exist than it will be create an new File.
 func NewCommentsFile(path string) (*CommentsFile, error) {
 	commentFile := CommentsFile{}
+
 	commentFile.FilePath = path
 	err := commentFile.Load()
 	if err != nil {
 		return &commentFile, fmt.Errorf("can't read comment file: %s", err)
-		commentFile.XML = XMLComment{}
 	}
 	return &commentFile, nil
 }
@@ -33,6 +33,7 @@ func (commentFile *CommentsFile) Load() (error) {
 	var err error
 	xmlFile, err := os.Open(commentFile.FilePath)
 	if err != nil {
+		commentFile.XML = NewXMLComment()
 		return fmt.Errorf("can't read comment file: %s", err)
 	}
 	defer xmlFile.Close()
@@ -40,6 +41,7 @@ func (commentFile *CommentsFile) Load() (error) {
 	byteValue, _ := ioutil.ReadAll(xmlFile)
 	err = xml.Unmarshal(byteValue, &commentFile.XML)
 	if err != nil {
+		commentFile.XML = NewXMLComment()
 		return fmt.Errorf("can't unmarshal comment file: %s", err)
 	}
 	return nil

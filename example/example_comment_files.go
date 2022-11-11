@@ -15,6 +15,7 @@ func main() {
 	testPreparation(testDir)
 	modifieTest(path)
 	modifieTest(path2)
+	modifieTest(path2 + ".not_exist.xml")
 }
 
 // Create a copy of the directory with the test files
@@ -33,7 +34,7 @@ func modifieTest(path string) {
 	log.Printf("Try to read file 1 %s", path)
 	comment, err := gt.NewCommentsFile(path)
 	if err != nil {
-		log.Panicf("error to init object: %w", err)
+		log.Printf("error to init object: %w", err)
 	}
 
 	//  Get...
