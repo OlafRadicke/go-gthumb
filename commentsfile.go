@@ -23,6 +23,7 @@ func NewCommentsFile(path string) (*CommentsFile, error) {
 	err := commentFile.Load()
 	if err != nil {
 		return &commentFile, fmt.Errorf("can't read comment file: %s", err)
+		XML = XMLComment{}
 	}
 	return &commentFile, nil
 }
