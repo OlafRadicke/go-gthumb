@@ -10,24 +10,24 @@ type XMLComment struct {
 	Caption        string        `xml:"caption"`
 	Note           string        `xml:"note"`
 	Place          string        `xml:"place"`
-	Rating         xmlRating     `xml:"rating"`
-	Time           xmlTime       `xml:"time"`
-	Categories     xmlCategories `xml:"categories"`
+	Rating         XmlRating     `xml:"rating"`
+	Time           XmlTime       `xml:"time"`
+	Categories     XmlCategories `xml:"categories"`
 }
 
-type xmlCategories struct {
-	CategoryList []xmlCategory `xml:"category"`
+type XmlCategories struct {
+	CategoryList []XmlCategory `xml:"category"`
 	Value        string        `xml:"value,attr"`
 }
 
-type xmlCategory struct {
+type XmlCategory struct {
 	Value string `xml:"value,attr"`
 }
 
-type xmlRating struct {
+type XmlRating struct {
 	Value string `xml:"value,attr"`
 }
 
-type xmlTime struct {
+type XmlTime struct {
 	Value string `xml:"value,attr"`
 }

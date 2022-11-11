@@ -121,19 +121,19 @@ func (commentFile *CommentsFile) SetRating(newValue string) () {
 }
 
 // GetCategories Get back the list of the Categories
-func (commentFile *CommentsFile) GetCategories() ([]xmlCategory) {
+func (commentFile *CommentsFile) GetCategories() ([]XmlCategory) {
 	return commentFile.XML.Categories.CategoryList
 }
 
 // AddCategory Add a Category to the list of the Categories
 func (commentFile *CommentsFile) AddCategory(catValue string) () {
-	newCat := xmlCategory{Value: catValue}
+	newCat := XmlCategory{Value: catValue}
 	commentFile.XML.Categories.CategoryList = append(commentFile.XML.Categories.CategoryList, newCat)
 }
 
 // RemoveCategory Remove a Category from the list of the Categories
 func (commentFile *CommentsFile) RemoveCategory(catValue string) () {
-	var newList []xmlCategory
+	var newList []XmlCategory
 
 	for _, category := range commentFile.GetCategories() {
 		if category.Value == catValue {
