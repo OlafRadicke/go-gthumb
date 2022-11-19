@@ -1,5 +1,5 @@
 go-gthumb
----------
+=========
 
 Small library for manipulation of meta and config files of program
 [gThumb](https://wiki.gnome.org/Apps/Gthumb).
@@ -9,10 +9,9 @@ Small library for manipulation of meta and config files of program
 ```
 go get github.com/OlafRadicke/
 ```
-
 ## Basic usage
 
-
+See the the examples in the directory [./example](./example)
 
 ## Test and example
 
@@ -50,3 +49,7 @@ go run example/example_file_tree.go
   - Find and collect all media files
 
 
+Who go-gthumb uses?
+-------------------
+
+In the project [banwoldang](https://github.com/OlafRadicke/banwoldang) the lib go-gthumb is used.
